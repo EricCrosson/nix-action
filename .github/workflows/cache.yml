@@ -1,0 +1,37 @@
+---
+name: Cache
+
+on:
+  workflow_call:
+    inputs:
+      cache:
+        description: Cachix cache to populate
+        required: true
+        type: string
+      flake:
+        description: Target flake on which to run `nix flake check`
+        required: false
+        type: string
+        default: ./nix
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cache:
+    name: Cache
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v2
+
+      - run: nix flake check ${{ inputs.flake }}
+
+      - run: |
+          nix build --json \
+            | jq --raw-output '.[].outputs | to_entries[].value' \
+            | cachix push ${{ inputs.cache }}
