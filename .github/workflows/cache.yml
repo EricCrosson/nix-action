@@ -13,6 +13,9 @@ on:
         required: false
         type: string
         default: ./nix
+    secrets:
+      cachix-auth-token:
+        description: Cachix authorization token with write access
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -32,6 +35,12 @@ jobs:
       - run: nix flake check ${{ inputs.flake }}
 
       - run: |
+          : install cachix
+          nix-env --quiet -j8 -iA cachix -f https://cachix.org/api/v1/install
+
+      - run: |
           nix build --json \
             | jq --raw-output '.[].outputs | to_entries[].value' \
             | cachix push ${{ inputs.cache }}
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.cachix-auth-token }}
