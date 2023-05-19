@@ -25,4 +25,6 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v2
 
-      - run: nix flake check ${{ inputs.flake }} --keep-going --print-build-logs
+      - run: |
+          : nix flake check
+          nix flake check ${{ inputs.flake }} --keep-going --print-build-logs
