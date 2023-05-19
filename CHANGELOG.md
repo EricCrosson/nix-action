@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/EricCrosson/nix-action/compare/v1.0.2...v1.0.3) (2023-05-19)
+
+
+### Bug Fixes
+
+* use uniform step output ([64ccfb7](https://github.com/EricCrosson/nix-action/commit/64ccfb7c7b6e2dfcdf6e5138f7e453239a25d3b5))
+
 ## [1.0.2](https://github.com/EricCrosson/nix-action/compare/v1.0.1...v1.0.2) (2023-05-19)
 
 
