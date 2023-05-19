@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/EricCrosson/nix-action/compare/v1.0.1...v1.0.2) (2023-05-19)
+
+
+### Bug Fixes
+
+* print build logs ([2f796f7](https://github.com/EricCrosson/nix-action/commit/2f796f7e645ffdb8841c4473973281d8d4918950))
+
 ## [1.0.1](https://github.com/EricCrosson/nix-action/compare/v1.0.0...v1.0.1) (2023-05-19)
 
 
