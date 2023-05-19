@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/EricCrosson/nix-action/compare/v1.0.0...v1.0.1) (2023-05-19)
+
+
+### Bug Fixes
+
+* install cachix ([dfa2bbc](https://github.com/EricCrosson/nix-action/commit/dfa2bbc259456231116a2c6ad3b134ba03a34cdb))
+
 # 1.0.0 (2023-05-19)
 
 
